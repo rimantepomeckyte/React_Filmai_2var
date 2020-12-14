@@ -16,7 +16,7 @@ const Main = () => {
         const data = await response.json();
         console.log(data.Search)
         if (data.Search) {
-            setMovies(data.Search);//uzsetinam reiksme ivesta
+            setMovies(data.Search);//sukelia duomenis i i state tuscia masyva
         }
     };
 
@@ -30,7 +30,7 @@ const Main = () => {
         const response = await fetch(url2 + id);
         const data = await response.json();
         console.log(data);
-        setSelected(data);//uzsetinam objekta su priskirtu id
+        setSelected(data);//sukelia duomenis i state tuscia objekta
     }
 
     useEffect(() => {

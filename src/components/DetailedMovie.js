@@ -12,6 +12,8 @@ const DetailedMovie = ({selected, closeMovie}) => {
                 <div className="ml-3 col-md-7 col-12">
                     <p className="row text-white font-weight-bolder plot mb-5">{selected.Plot}</p>
                     <p className="row text-white"><span
+                        className="font-weight-bold text-success">Genre: </span> {selected.Genre}</p>
+                    <p className="row text-white"><span
                         className="font-weight-bold text-success">Director: </span> {selected.Director}</p>
                     <p className="row text-white"><span
                         className="font-weight-bold text-success">Main actors: </span> {selected.Actors}</p>
