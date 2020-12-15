@@ -16,7 +16,10 @@ const Main = () => {
         const data = await response.json();
         console.log(data.Search)
         if (data.Search) {
-            setMovies(data.Search);//sukelia duomenis i i state tuscia masyva
+            setMovies(data.Search);//sukelia duomenis i state tuscia masyva
+        }else if(data.Search === undefined){
+            alert("No movie found!")
+            console.log("No movie!")
         }
     };
 
@@ -35,7 +38,7 @@ const Main = () => {
 
     useEffect(() => {
         openMovie();
-    }, []);//ar gerai kad turi likti tuscias?
+    }, []);
 
     const closeMovie = () => {
         setSelected({})
@@ -45,7 +48,7 @@ const Main = () => {
         <div className="container-fluid">
             <div className="row d-flex justify-content-center align-items-center my-4">
                 <Header/>
-                <Search searchValue={searchValue} setSearchValue={setSearchValue}/>
+                <Search searchValue={searchValue} setSearchValue={setSearchValue} setMovies={setMovies}/>
             </div>
             <MoviesList movies={movies} openMovie={openMovie}/>
             {(typeof selected.Title != "undefined") ? <DetailedMovie selected={selected} closeMovie={closeMovie}/> : false}

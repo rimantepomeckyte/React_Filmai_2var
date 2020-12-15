@@ -1,31 +1,28 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-body, html{
-height: 100%;
+
+body, html {
+    height: 100%;
 }
 
-body{
+body {
     background: url(img/background2.jpg) center no-repeat fixed;
     background-size: cover;
 }
 
-.logo{
+.logo {
     width: 85px;
 }
-.search-input:focus{
 
-    outline: none;
+.moviesList {
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.moviesList{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-}
-
-.moviesList h4{
+.moviesList h4 {
     display: flex;
     height: 4rem;
     align-items: center;
@@ -33,24 +30,26 @@ body{
     font-size: 22px;
     font-weight: 600;
 }
-.image-container{
+
+.image-container {
     position: relative;
     transition: transform 0.2s;
     display: flex;
     flex-direction: column;
+    width: 15rem;
 }
 
-.image-container:hover{
+.image-container:hover {
     cursor: pointer;
     transform: scale(1.1);
 }
 
-.image-container img{
-    max-width: 100%;
-    height: 410px;
+.image-container img {
+    height: 350px;
+    width: 240px;
 }
 
-.detailed-movie{
+.detailed-movie {
     position: fixed;
     top: 0;
     left: 0;
@@ -60,11 +59,11 @@ body{
     overflow-y: scroll;
 }
 
-.detailed-img{
+.detailed-img {
     max-width: 100%;
     height: 320px;
 }
 
-.plot{
+.plot {
     font-size: 20px;
 }

@@ -4,16 +4,21 @@ const Search = (props) => {
     const getMoviesOnEnter = (e) => {
         if (e.key === 'Enter') {
             props.setSearchValue(e.target.value);
-            //console.log('do validate');
         }
+    }
+    const handleSubmit= (e)=> {
+        e.preventDefault();
+        e.target.reset();
     }
 
     return (
         <div className="col col-sm-5">
-            <input className="search-input form-control"
+            <form onSubmit={handleSubmit}>
+            <input className="form-control"
                    value={props.value}
                    onKeyDown={getMoviesOnEnter}
                    placeholder="Search for a movie..."/>
+            </form>
         </div>
     )
 }
