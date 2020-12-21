@@ -12,15 +12,17 @@ const Main = () => {
 
     const url = `https://www.omdbapi.com/?apikey=e4db3ced&s=${searchValue}`;//&s= +&{searchValue}
     const getMovies = async () => {
+        if(searchValue !== ''){
         const response = await fetch(url);
         const data = await response.json();
         console.log(data.Search)
         if (data.Search) {
             setMovies(data.Search);//sukelia duomenis i state tuscia masyva
         }else if(data.Search === undefined){
+            setMovies([])
             alert("No movie found!")
             console.log("No movie!")
-        }
+        }}
     };
 
     useEffect(() => {
@@ -48,7 +50,7 @@ const Main = () => {
         <div className="container-fluid">
             <div className="row d-flex justify-content-center align-items-center my-4">
                 <Header/>
-                <Search searchValue={searchValue} setSearchValue={setSearchValue} setMovies={setMovies}/>
+                <Search searchValue={searchValue} setSearchValue={setSearchValue} />
             </div>
             <MoviesList movies={movies} openMovie={openMovie}/>
             {(typeof selected.Title != "undefined") ? <DetailedMovie selected={selected} closeMovie={closeMovie}/> : false}
